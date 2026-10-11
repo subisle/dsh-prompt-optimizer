@@ -11,7 +11,7 @@ export { Config }
 
 export type { PromptOptimizerConfig }
 export type { OptimizeRequest, OptimizeHostResult as OptimizeResult } from './types.ts'
-export { normalizePrompt } from './host-controller.ts'
+export { normalizePrompt, userText } from './host-controller.ts'
 
 /**
  * Mount the promptOptimizer Remote namespace with the deployment's config.
