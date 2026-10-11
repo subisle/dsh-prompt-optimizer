@@ -1,0 +1,4 @@
+# The dsh-prompt-optimizer bundle patch: one combined host+client plugin row.
+- insert:
+    - id: prompt-optimizer
+      name: dsh-prompt-optimizer

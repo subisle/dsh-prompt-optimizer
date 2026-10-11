@@ -1,0 +1,22 @@
+/* Composer toolbar row for the Prompt Optimizer entry. */
+.row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	min-width: 0;
+	max-width: 100%;
+}
+
+.message {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	opacity: 0.75;
+}
+
+/* In-flight state: the button itself is the only indicator — no text, no
+   spinner, no extra icon, and no layout shift. */
+.busy {
+	opacity: 0.55;
+}

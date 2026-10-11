@@ -1,0 +1,8 @@
+{
+  "name": "@deepseek-ai/dsh-client-ui-renderer",
+  "version": "0.0.0-local",
+  "exports": {
+    ".": { "types": "./index.d.ts" },
+    "./client": { "types": "./client.d.ts" }
+  }
+}

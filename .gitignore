@@ -1,0 +1,15 @@
+# Dependencies and build output
+node_modules/
+
+# Build artifacts (produced by `npm install` → prepare → build.mjs)
+lib/
+
+# Release archives
+*.tgz
+
+# Verification screenshots (kept local; they show a real desktop)
+docs/
+
+# Editor / OS noise
+.DS_Store
+*.log
