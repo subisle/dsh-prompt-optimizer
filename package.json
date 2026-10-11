@@ -1,5 +1,5 @@
 {
-  "name": "dsh-prompt-optimizer",
+  "name": "dsh-composer-prompt-optimizer",
   "description": "Optimize the composer prompt with session context awareness, using the currently selected model",
   "version": "0.1.0",
   "type": "module",

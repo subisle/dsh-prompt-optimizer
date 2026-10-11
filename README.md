@@ -1,4 +1,4 @@
-# dsh-prompt-optimizer
+# dsh-composer-prompt-optimizer
 
 DeepSeek Harness 插件：在对话输入框工具栏添加「优化提示词」按钮（✨），一键把当前草稿结合会话上下文改写成更高质量的提示词，**使用当前已选择的模型**。
 
@@ -38,7 +38,7 @@ DeepSeek Harness 插件：在对话输入框工具栏添加「优化提示词」
 
 ```yaml
 - id: prompt-optimizer
-  name: dsh-prompt-optimizer
+  name: dsh-composer-prompt-optimizer
   config:
     maxOutputTokens: 4096
     timeoutMs: 120000
@@ -49,15 +49,18 @@ DeepSeek Harness 插件：在对话输入框工具栏添加「优化提示词」
 ## 安装
 
 ```sh
-# ① Release 附件 tarball（无需构建权限，推荐分发方式）
-curl -LO https://github.com/subisle/dsh-prompt-optimizer/releases/download/v0.1.0/dsh-prompt-optimizer-0.1.0.tgz
-dsh plugin --profile <name> add ./dsh-prompt-optimizer-0.1.0.tgz
+# ① npm（无需构建权限，推荐）
+dsh plugin --profile <name> add dsh-composer-prompt-optimizer
 
-# ② 本地目录
+# ② Release 附件 tarball
+curl -LO https://github.com/subisle/dsh-prompt-optimizer/releases/download/v0.1.0/dsh-composer-prompt-optimizer-0.1.0.tgz
+dsh plugin --profile <name> add ./dsh-composer-prompt-optimizer-0.1.0.tgz
+
+# ③ 本地目录
 dsh plugin --profile <name> add /path/to/prompt-optimizer
 
-# ③ git（会执行本包的 prepare 脚本自动构建）
-dsh plugin --profile <name> add github:<you>/dsh-prompt-optimizer
+# ④ git（会执行本包的 prepare 脚本自动构建）
+dsh plugin --profile <name> add github:subisle/dsh-prompt-optimizer
 
 # 验证组合层
 dsh --profile <name> --dump-config | grep -A1 prompt-optimizer
@@ -67,7 +70,10 @@ Desktop 应用：安装到 `~/.dsh/profiles/desktop` 后重启应用（客户端
 
 ## 包名与仓库
 
-`package.json` 的 `name` 是**唯一来源**：构建脚本据此生成根目录 `cordis.patch.yml` 的插件行、浏览器闭包工厂的 `id`、以及两份 Typert 清单的 `package`/`id`/`typeSymbol`。改包名只需改 `package.json` 一处再 `npm run build`（`npm test` 会校验三者一致）。
+- **npm 包名**：`dsh-composer-prompt-optimizer`
+- **GitHub 仓库**：<https://github.com/subisle/dsh-prompt-optimizer>
+
+两者不同名：`dsh-prompt-optimizer` 在 npm 上已被其它作者的同类插件占用，因此发布用名带 `composer`。`package.json` 的 `name` 是**唯一来源** —— 构建脚本据此生成根目录 `cordis.patch.yml` 的插件行、浏览器闭包工厂的 `id`、以及两份 Typert 清单的 `package`/`id`/`typeSymbol`。改包名只需改 `package.json` 一处再 `npm run build`（`npm test` 会校验三者一致）。
 
 ## 版本适配
 
