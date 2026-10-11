@@ -1,4 +1,5 @@
-/* Hand-written Typert client-face contribution for dsh-prompt-optimizer.
+/* Hand-written Typert client-face contribution. The package name is
+ * injected by build.mjs from package.json (single source of truth).
  * Mirrors the generated `lib/typert.remote-client.js` shape; the client bundle
  * requests this file through the module table (`dsh.client.external`). */
 import { z } from 'zod'
@@ -18,10 +19,10 @@ const _optimize_result$schema = () => (_optimize_result$schema$value ??= z.objec
 }))
 
 export const TYPERT_REMOTE = {
-  package: 'dsh-prompt-optimizer',
+  package: '__PACKAGE_NAME__',
   descriptors: [
     {
-      id: 'dsh-prompt-optimizer#promptOptimizer/optimize',
+      id: '__PACKAGE_NAME__#promptOptimizer/optimize',
       service: 'promptOptimizerController',
       namespace: 'promptOptimizer',
       method: 'optimize',
@@ -33,14 +34,14 @@ export const TYPERT_REMOTE = {
           source: 'json',
           codec: {
             mode: 'strict',
-            typeSymbol: 'dsh-prompt-optimizer#promptOptimizer/optimize:request',
+            typeSymbol: '__PACKAGE_NAME__#promptOptimizer/optimize:request',
             create: _optimize_request$schema,
           },
         },
       ],
       result: {
         mode: 'strict',
-        typeSymbol: 'dsh-prompt-optimizer#promptOptimizer/optimize:result',
+        typeSymbol: '__PACKAGE_NAME__#promptOptimizer/optimize:result',
         create: _optimize_result$schema,
       },
       cancellation: { parameter: 'signal' },

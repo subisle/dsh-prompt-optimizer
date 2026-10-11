@@ -1,4 +1,5 @@
-/* Hand-written Typert host-face manifest for dsh-prompt-optimizer.
+/* Hand-written Typert host-face manifest. The package name is
+ * injected by build.mjs from package.json (single source of truth).
  * Mirrors the generated `lib/typert.host.js` shape the Loader auto-registers. */
 import { z } from 'zod'
 
@@ -17,13 +18,13 @@ const _optimize_result$schema = () => (_optimize_result$schema$value ??= z.objec
 }))
 
 export const TYPERT = {
-  package: 'dsh-prompt-optimizer',
+  package: '__PACKAGE_NAME__',
   face: 'host',
   schemas: [
   ],
   invocations: [
     {
-      id: 'dsh-prompt-optimizer#promptOptimizer/optimize',
+      id: '__PACKAGE_NAME__#promptOptimizer/optimize',
       service: 'promptOptimizerController',
       namespace: 'promptOptimizer',
       method: 'optimize',
@@ -35,14 +36,14 @@ export const TYPERT = {
           source: 'json',
           codec: {
             mode: 'strict',
-            typeSymbol: 'dsh-prompt-optimizer#promptOptimizer/optimize:request',
+            typeSymbol: '__PACKAGE_NAME__#promptOptimizer/optimize:request',
             create: _optimize_request$schema,
           },
         },
       ],
       result: {
         mode: 'strict',
-        typeSymbol: 'dsh-prompt-optimizer#promptOptimizer/optimize:result',
+        typeSymbol: '__PACKAGE_NAME__#promptOptimizer/optimize:result',
         create: _optimize_result$schema,
       },
       cancellation: { parameter: 'signal' },

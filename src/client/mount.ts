@@ -8,7 +8,7 @@ import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
 import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
 import type {} from '@deepseek-ai/dsh-client-ui-chat/client'
 import type {} from '@deepseek-ai/dsh-typert-protocol'
-import type {} from '@deepseek-ai/dsh-prompt-optimizer/remote'
+import type {} from '../typert.remote-client.js'
 import { PromptOptimizer } from './PromptOptimizer.tsx'
 import { en, NS, zh } from './locales.ts'
 

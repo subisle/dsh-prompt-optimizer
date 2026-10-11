@@ -39,7 +39,7 @@ function section(title) {
 
 // ── 1. Manifest contract ────────────────────────────────────────────────────
 section('1. manifest / bundle contract')
-check('name is a plain npm package name', /^[a-z0-9][a-z0-9._-]*$/u.test(manifest.name), manifest.name)
+check('name is a valid npm package name', /^(?:@[a-z0-9][a-z0-9._-]*\/)?[a-z0-9][a-z0-9._-]*$/u.test(manifest.name), manifest.name)
 check('version is valid semver', semver.valid(manifest.version) !== null, manifest.version)
 check('type is module', manifest.type === 'module')
 check('dsh.bundle.patch declared', typeof manifest.dsh?.bundle?.patch === 'string', manifest.dsh?.bundle?.patch)
@@ -77,6 +77,17 @@ for (const runtime of targets) {
 }
 check('no workspace: protocol in a publishable manifest',
   !Object.values(peers).some((range) => String(range).startsWith('workspace:')))
+
+// ── 3b. Single source of truth for the package identity ─────────────────────
+section('3b. package identity (single source of truth)')
+const hostManifest = readFileSync(join(root, 'lib/typert.host.js'), 'utf8')
+const remoteManifest = readFileSync(join(root, 'lib/typert.remote-client.js'), 'utf8')
+for (const [label, source] of [['lib/typert.host.js', hostManifest], ['lib/typert.remote-client.js', remoteManifest]]) {
+  check(`${label} carries the manifest name`, source.includes(`'${ID}'`))
+  check(`${label} has no placeholder left`, !source.includes('__PACKAGE_NAME__'))
+  check(`${label} names this package in every identity field`,
+    !/package: '(?!@?[a-z0-9])/u.test(source) && source.includes(`${ID}#promptOptimizer/optimize`))
+}
 
 // ── 4. Host half ────────────────────────────────────────────────────────────
 section('4. host half (lib/index.js)')

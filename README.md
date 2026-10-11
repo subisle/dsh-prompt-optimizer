@@ -49,7 +49,8 @@ DeepSeek Harness 插件：在对话输入框工具栏添加「优化提示词」
 ## 安装
 
 ```sh
-# ① tarball（无需构建权限，推荐分发方式）
+# ① Release 附件 tarball（无需构建权限，推荐分发方式）
+curl -LO https://github.com/subisle/dsh-prompt-optimizer/releases/download/v0.1.0/dsh-prompt-optimizer-0.1.0.tgz
 dsh plugin --profile <name> add ./dsh-prompt-optimizer-0.1.0.tgz
 
 # ② 本地目录
@@ -63,6 +64,10 @@ dsh --profile <name> --dump-config | grep -A1 prompt-optimizer
 ```
 
 Desktop 应用：安装到 `~/.dsh/profiles/desktop` 后重启应用（客户端条目会随 HMR 自动热重载，Host 半边需要重启生效）。
+
+## 包名与仓库
+
+`package.json` 的 `name` 是**唯一来源**：构建脚本据此生成根目录 `cordis.patch.yml` 的插件行、浏览器闭包工厂的 `id`、以及两份 Typert 清单的 `package`/`id`/`typeSymbol`。改包名只需改 `package.json` 一处再 `npm run build`（`npm test` 会校验三者一致）。
 
 ## 版本适配
 

@@ -1,6 +1,6 @@
 /** Browser entry for the composer Prompt Optimizer toolbar activity. */
 import type { Context } from '@deepseek-ai/cordis'
-import remote from '@deepseek-ai/dsh-prompt-optimizer/remote'
+import remote from '../typert.remote-client.js'
 import type { TypertRemoteContribution } from '@deepseek-ai/dsh-typert-protocol'
 import { mountPromptOptimizer } from './mount.ts'
 
