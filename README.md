@@ -47,7 +47,7 @@ The optimization call reuses the session's model, resolved in this order:
 
 ### The optimization prompt
 
-The system prompt is a layered contract — role framing, a silent analysis checklist, an explicit expansion policy and a mandatory pre-output self-check — inspired by [prompt-optimizer](https://github.com/linshenkx/prompt-optimizer), re-targeted at coding-agent task briefs:
+The system prompt is a layered contract — role framing, a silent analysis checklist, an explicit expansion policy and a mandatory pre-output self-check — re-targeted at coding-agent task briefs:
 
 | Layer | What it does |
 |---|---|

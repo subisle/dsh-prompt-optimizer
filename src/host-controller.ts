@@ -48,10 +48,10 @@ export const Config: Schema<Config> = Schema.object({
 })
 
 /**
- * Fixed optimization contract, layered after the reference methodology of
- * `linshenkx/prompt-optimizer` (role framing, evidence-only rewriting, explicit
- * workflow, mandatory self-check) but re-targeted at a coding agent's composer:
- * the deliverable is a task brief, never a persona/system-prompt template.
+ * Fixed optimization contract: layered structure (role framing, evidence-only
+ * rewriting, explicit workflow, mandatory self-check) re-targeted at a coding
+ * agent's composer — the deliverable is a task brief, never a persona
+ * /system-prompt template.
  */
 const SYSTEM = `You are the prompt optimizer embedded in a coding agent's composer. You turn the user's raw draft into ONE better prompt for the SAME coding agent in the SAME session. You improve how the task is stated; you never perform it.
 
