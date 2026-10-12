@@ -10,6 +10,8 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
   [![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
 
+  **English** | [简体中文](README.zh-CN.md)
+
   [Features](#features) • [How it works](#how-it-works) • [Install](#install) • [Configuration](#configuration) • [Development](#development)
 
   ![The composer with an optimized prompt staged](docs/verified-web.png)
@@ -65,8 +67,8 @@ The system prompt is a layered contract — role framing, a silent analysis chec
 dsh plugin --profile <name> add dsh-composer-prompt-optimizer
 
 # ② From a release tarball
-curl -LO https://github.com/subisle/dsh-prompt-optimizer/releases/download/v0.1.0/dsh-composer-prompt-optimizer-0.1.0.tgz
-dsh plugin --profile <name> add ./dsh-composer-prompt-optimizer-0.1.0.tgz
+curl -LO https://github.com/subisle/dsh-prompt-optimizer/releases/download/v0.2.0/dsh-composer-prompt-optimizer-0.2.0.tgz
+dsh plugin --profile <name> add ./dsh-composer-prompt-optimizer-0.2.0.tgz
 
 # ③ From a local directory
 dsh plugin --profile <name> add /path/to/prompt-optimizer
