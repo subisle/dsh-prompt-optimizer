@@ -150,6 +150,10 @@ check('expansion policy forbids short-draft shrinkage',
 check('expansion policy bans filler', /Generic filler is a failure/u.test(controller))
 check('system prompt keeps the six non-negotiable rules',
   /Preserve the draft's language/u.test(controller) && /Never invent facts/u.test(controller))
+check('system prompt bans meta-content in the output', /Never emit meta-content/u.test(controller)
+  && /no assumptions/u.test(controller) && controller.includes('\\u5F85\\u786E\\u8BA4'))
+check('gaps are silently defaulted, never surfaced', /silently choose the safest sensible default/u.test(controller))
+check('lean-output rule present', /every sentence must earn its place/u.test(controller))
 
 // ── 5. Browser bundle contract ──────────────────────────────────────────────
 section('5. browser half (lib/client.js)')
