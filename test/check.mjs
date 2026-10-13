@@ -141,19 +141,19 @@ check('marker collision inside the draft is neutralized',
   && smuggled.split('</draft-evidence>').length === 2,
   JSON.stringify(smuggled))
 check('context is optional', !host.userText('x', []).includes('<turn-evidence'))
-for (const clause of ['NON-NEGOTIABLE RULES', 'INTERNAL ANALYSIS', 'EXPANSION POLICY',
-  'SUGGESTED SHAPE', 'SELF-CHECK BEFORE YOU EMIT', 'never emit Role/Profile/Skills']) {
+for (const clause of ['NON-NEGOTIABLE RULES', 'INTERNAL ANALYSIS',
+  'REWRITE POLICY', 'SELF-CHECK BEFORE YOU EMIT', 'never emit Role/Profile/Skills']) {
   check(`system prompt carries ${clause}`, controller.includes(clause))
 }
-check('expansion policy forbids short-draft shrinkage',
+check('rewrite policy forbids short-draft shrinkage',
   /short draft must NOT come back a few characters longer/u.test(controller))
-check('expansion policy bans filler', /Generic filler is a failure/u.test(controller))
+check('rewrite policy bans non-prompt output', /Cut anything that is not the prompt itself/u.test(controller))
 check('system prompt keeps the six non-negotiable rules',
   /Preserve the draft's language/u.test(controller) && /Never invent facts/u.test(controller))
 check('system prompt bans meta-content in the output', /Never emit meta-content/u.test(controller)
   && /no assumptions/u.test(controller) && controller.includes('\\u5F85\\u786E\\u8BA4'))
 check('gaps are silently defaulted, never surfaced', /silently choose the safest sensible default/u.test(controller))
-check('lean-output rule present', /every sentence must earn its place/u.test(controller))
+check('lean-output rule present', /Is it lean/u.test(controller))
 
 // ── 5. Browser bundle contract ──────────────────────────────────────────────
 section('5. browser half (lib/client.js)')
